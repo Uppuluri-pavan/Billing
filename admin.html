@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Page</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<!-- sweet alert library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
+
+ <!-- code for font awsome 4 -->
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<!-- header section-->
+<header class="header">
+    <a href="index.html" class="logo"><h2>Billing System Admin page</h2></a>
+
+
+    
+
+    <div class="icons">
+        
+        <div class="fa fa-bars" id="login-btn"></div>
+    </div>
+
+
+    
+
+
+    <form action="index1.html" class="login-form" id="sideNav">
+
+
+      <i class="fa fa-home" style="font-size: 2rem;"></i> <a href="index.html"><b>Home page</b></a> <br><br>
+
+      <i class="fa fa-list" style="font-size: 1rem;"></i> <u style="text-decoration: underline;">Category list</u> <br>
+        
+        <div class="dropdown">
+            
+            <label class="dropdown-label">Tea <b>↓</b></label>
+            <div class="dropdown-content">
+              <a href="#">Ginger Tea</a>
+              <a href="#">Lemon Tea</a>
+              <a href="#">Ginger Lemon Tea</a>
+            </div>
+        </div><br>
+        
+        <div class="dropdown">
+            <label class="dropdown-label">Milkshakes <b>↓</b></label>
+            <div class="dropdown-content">
+              <a href="#">Butterscotch milkshakes</a>
+              <a href="#">Chocolate milkshake</a>
+              <a href="#">Strawberry milkshake</a>
+            </div>
+        </div><br>
+        
+        <div class="dropdown">
+            <label class="dropdown-label">Juice's <b>↓</b></label>
+            <div class="dropdown-content">
+              <a href="#">Amla Juice</a>
+              <a href="#">Orange Juice</a>
+              <a href="#">Pineapple Juice</a>
+            </div>
+        </div><br>
+
+        <div class="dropdown">
+            <label class="dropdown-label">tea with biscuit <b>↓</b></label>
+            <div class="dropdown-content">
+              <a href="#">Chocolate digestives.</a>
+              <a href="#">Malted Milks.</a>
+              <a href="#">Biscuit tins</a>
+            </div>
+        </div> <br><br> <hr>
+
+        <i class="fa fa-addrees-book" style="font-size: 2rem;"></i> <a href=""><b>contact us</b></a> <br><br>
+
+        <a href="mailto:siriberisudhakar@gmail.com">Pavansaiuppuluri@gmail.com</a> <br><br>
+        <a aria-label="Chat on WhatsApp" href="https://wa.me/917396318468?text=Hi Pavan Sai i have doubt about billing system"> <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.png" /><a />
+    </form>
+</header>
+<!--header section -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <h1 style="text-align: center;">Admin Page</h1> <br> <br><br><br>
+  <!-- Add new item form -->
+  <form id="addItemForm" onsubmit="addItem(); return false;">
+    <div class="form-group">
+     <h3>Add New Item</h3>
+     <hr>
+      <!--label for="itemName">Item Name:</label-->
+      <input type="text" placeholder="Enter Item Name" class="form-control" id="itemName" required style="width: 20rem; border: 2px solid black;">
+    </div>
+    <div class="form-group">
+      <!--label for="itemPrice">Item Price:</label-->
+      <input type="number" placeholder="Enter Item Price" class="form-control" id="itemPrice" required style="width: 20rem; border: 2px solid black;">
+    </div>
+    <!-- Include input field for image upload -->
+    <div class="form-group">
+      <label for="itemImage">Item Image:</label>
+      <input type="file" id="itemImage" accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Item</button>
+  </form>
+  <hr>
+  <!-- Remove item form -->
+  <form id="removeItemForm" onsubmit="removeItem(); return false;">
+    <div class="form-group">
+      <h3>Delete Item</h3>
+      <hr>
+      <!--label for="removeItemName">Item Name:</label-->
+      <input type="text" placeholder="Enter Item Name To Delete" class="form-control" id="removeItemName" required style="width: 20rem; border: 2px solid black;">
+    </div>
+    <button type="submit" class="btn btn-danger">Remove Item</button>
+  </form>
+  <hr>
+  <a href="index.html" class="btn btn-primary"><-- home Page</a> <!-- Link to go back to the index page -->
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

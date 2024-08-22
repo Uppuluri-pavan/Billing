@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+    
+    <!-- sweet alert library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+     <!-- code for font awsome 4 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+
+</head>
+<body onload="searchItems()">
+    
+    <!-- header section-->
+    <header class="header">
+        <a href="#" class="logo"><h2>Billing System</h2></a>
+
+
+        
+
+        <div class="icons">
+            
+            <div class="fa fa-bars" id="login-btn"></div>
+        </div>
+
+
+        
+
+    
+        <form action="index1.html" class="login-form" id="sideNav">
+
+
+          <i class="fa fa-user" style="font-size: 2rem;"></i> <a href="admin.html"><b>Admin page</b></a> <br><br>
+
+          <i class="fa fa-list" style="font-size: 1rem;"></i> <u style="text-decoration: underline;">Category list</u> <br>
+            
+            <div class="dropdown">
+                
+                <label class="dropdown-label">Tea <b>↓</b></label>
+                <div class="dropdown-content">
+                  <a href="#">Ginger Tea</a>
+                  <a href="#">Lemon Tea</a>
+                  <a href="#">Ginger Lemon Tea</a>
+                </div>
+            </div><br>
+            
+            <div class="dropdown">
+                <label class="dropdown-label">Milkshakes <b>↓</b></label>
+                <div class="dropdown-content">
+                  <a href="#">Butterscotch milkshakes</a>
+                  <a href="#">Chocolate milkshake</a>
+                  <a href="#">Strawberry milkshake</a>
+                </div>
+            </div><br>
+            
+            <div class="dropdown">
+                <label class="dropdown-label">Juice's <b>↓</b></label>
+                <div class="dropdown-content">
+                  <a href="#">Amla Juice</a>
+                  <a href="#">Orange Juice</a>
+                  <a href="#">Pineapple Juice</a>
+                </div>
+            </div><br>
+
+            <div class="dropdown">
+                <label class="dropdown-label">tea with biscuit <b>↓</b></label>
+                <div class="dropdown-content">
+                  <a href="#">Chocolate digestives.</a>
+                  <a href="#">Malted Milks.</a>
+                  <a href="#">Biscuit tins</a>
+                </div>
+            </div> <br><br> <hr>
+
+            <i class="fa fa-addrees-book" style="font-size: 2rem;"></i> <a href=""><b>contact us</b></a> <br><br>
+
+            <a href="mailto:pavansaiuppuluri@gmail.com">pavansaiuppuluri@gmail.com</a> <br><br>
+            <a aria-label="Chat on WhatsApp" href="https://wa.me/917396318468?text=Hi sudhakar i have doubt about billing system"> <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.png" /><a />
+        </form>
+    </header>
+<!--header section -->
+
+
+
+<div class="container">
+    <br><br><br><br><br><br> <input type="text" id="searchInput" onkeyup="searchItems()" class="form-control" placeholder="Search items with keyword..." style="width: 20rem; border: 2px solid black;" ><i style="margin-left: 20.5rem; font-size: 22px; position: absolute; top: 9rem;" class="fa fa-search"></i> <br> <br>
+    <h3>List Of Items</h3>
+  
+    <div class="search-results-container">
+      <div id="searchResults" class="selected-items"></div>
+    </div>
+    <hr>
+    <h3>Selected Items</h3>
+    <table class="table"> 
+      <thead>
+        <tr>
+          <th style="background:#C0BDBD">Serial Number</th>
+          <th style="background:#C0BDBD">Item Name</th>
+          <th style="background:#C0BDBD">Quantity</th>
+          <th style="background:#C0BDBD">Price</th>
+          <th style="background:#C0BDBD">Remove</th>
+        </tr>
+      </thead>
+      <tbody id="selectedItemsTableBody" style="background: #F6F6F6;"></tbody>
+    </table>
+    <div id="totalPriceSection" style="margin-top: 20px; text-align: end;">
+      <label for="totalPrice"></label>
+      <span id="totalPrice"></span>
+    </div>
+    <div id="paymentSection" style="margin-top: 20px;">
+      <label for="paymentMode" style="font-weight: bold;">Payment Mode:</label> &nbsp; &nbsp;
+  
+      <input type="radio" id="Online" name="html">
+      <label for="Online">Online</label>
+      
+      <input type="radio" id="Offline" name="html">
+      <label for="Offline">Offline</label><br>
+    
+      <br>
+      <label for="amount" style="font-weight: bold;">Amount:</label>
+      <input type="number" id="amount" class="form-control" onkeyup="calculateBalance()" style="width: 20rem; border: 2px solid black;" placeholder="Enter amount..">
+      <div id="balanceSection" style="margin-top: 10px;">
+        <label for="balance" style="font-weight: bold;">Balance:</label>
+        <span id="balance"></span>
+      </div>
+    </div>
+    <hr>
+  
+    <button onclick="printInvoice()" class="btn btn-primary">Print Invoice</button>
+</div>
+  
+  <div class="container" id="print-section"> <br> <br>
+    <div class="company-name">
+      <span style="font-size: 5rem; font-family:sans-serif;">Tea Time Franchise</span> <br>
+      <span style="font-size: large; font-weight: lighter;">It is always tea time.</span>
+    </div>
+    <div class="invoice-details">
+      Mobile: <span>7396318468</span><br>
+      GSTIN : <span>24AADCR7484D1GZFR</span> <br>
+      Date: <span id="invoiceDate"></span> <br> <br>
+      <h3 style="font-size: xx-large;">Bill Reciept</h3>
+      <hr style="border: 1px solid rgb(148, 140, 140);">
+                                  
+    </div>
+    <table class="invoice-table">
+      <h5 style="font-weight: bold;">Items You Purchased : </h5>
+      <thead>
+        <tr>
+          <th>Serial Number</th>
+          <th>Item Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody id="invoiceItemsTableBody"></tbody>
+    </table>
+    <div class="total-section" id="totalPriceSectionPrint" style="text-align: end;">
+      <label for="totalPricePrint" style="font-weight: 900; font-size: 2rem;">Total Amount:</label>
+      <span id="totalPricePrint" style="font-weight: 900; font-size: 2rem;"></span> <br>
+    </div>
+  
+  
+  
+    <hr style="border: 1px solid rgb(148, 140, 140);">
+  
+  
+    <div class="total-section" id="amountSectionPrint">
+      <span id="paymentModePrint" style="font-weight: bold;"></span> <br>
+  
+      <label for="amountPrint" style="font-weight: bold;">Amount You Paid:</label>
+      <span id="amountPrint" style="font-weight: 900;"></span>
+    </div>
+  
+  
+    <hr style="border: 1px solid rgb(148, 140, 140);">
+  
+      <!--img src="images/Ginger Lemon Tea.png" alt=""-->
+    <div class="total-section" id="balanceSectionPrint">
+      <label for="balancePrint">The petty cash you get :</label>
+      <span id="balancePrint"></span>
+    </div>
+  
+    <div class="thank-you-message">Thank you for coming to our shop and we hope you will come again!</div>
+    <br><h6 class="esign">proprietor sign <br> <span style="font-family: cursive;">U.Pavan</span></h6>
+   </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
